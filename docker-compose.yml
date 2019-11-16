@@ -27,3 +27,5 @@ services:
 volumes:
   mysql-data:
     driver: local
+  bundle:
+    driver: local
