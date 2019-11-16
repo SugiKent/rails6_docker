@@ -44,7 +44,7 @@ production:
 
 ```
 $ find config -name "*.yml" | xargs grep -rl "myapp" | xargs sed -i "" -e "s/myapp/new_app/g"
-$ docker-compose run web rake db:create
+$ docker-compose run web rails db:create
 ```
 
 ### コンテナ起動
