@@ -42,7 +42,10 @@ production:
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
 ```
 
-その後DB作成 `$ docker-compose run web rake db:create`
+```
+$ find config -name "*.yml" | xargs grep -rl "myapp" | xargs sed -i "" -e "s/myapp/new_app/g"
+$ docker-compose run web rake db:create
+```
 
 ### コンテナ起動
 
@@ -52,6 +55,9 @@ http://localhost:3000 にアクセスできるはず
 
 ## 環境構築後
 
-`$ chmod 755 start-docker.sh` ←一度だけ実行
+```
+$ chmod 755 start-docker.sh ←一度だけ実行
+$ git grep -l 'rails6_docker' | xargs sed -i '' -e 's/rails6_docker/new_app/g'
+```
 
 以降は `$ ./start-docker.sh` でいい感じに立ち上がる
