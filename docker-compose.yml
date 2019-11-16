@@ -14,6 +14,9 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
+      - bundle:/ura_reputation/vendor/bundle
+    environment:
+      BUNDLE_APP_CONFIG: ./.bundle
     ports:
       - "3000:3000"
     depends_on:
